@@ -2,27 +2,56 @@ const db = require('../db');
 
 module.exports = {
 
-  getAll: async () => {
-    const query = 'SELECT * FROM products'; // TO DO:
-    const res =  await db.query(query);
-    return res;
+  getAll: () => {
+    return new Promise((resolve, reject) => {
+      var getQuery = 'select * from products limit 5';
+      db.query(getQuery, (err, results) => {
+        if(err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
   },
 
-  getOne: async (id) => {
-    const query = ''; // TO DO:
-    const res = await db.query(query);
-    return res;
+  getOne: (id) => {
+    return new Promise((resolve, reject) => {
+      const query = ''; // TO DO:
+      db.query(query, (err, results) => {
+        if(err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
   },
 
-  getProductStyles: async (id) => {
-    const query = ''; // TO DO:
-    const res = await db.query(query);
-    return res;
+  getProductStyles: (id) => {
+    return new Promise((resolve, reject) => {
+      const query = ''; // TO DO:
+      db.query(query, (err, results) => {
+        if(err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
+  },
+
+  getRelatedProducts: (id) => {
+    return new Promise((resolve, reject) => {
+      const query = ''; // TO DO:
+      db.query(query, (err, results) => {
+        if(err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
   }
 
-  getRelatedProducts: async (id) => {
-    const query = ''; // TO DO:
-    const res = await db.query(query);
-    return res;
-  }
-}
+};

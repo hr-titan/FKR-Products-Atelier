@@ -16,7 +16,7 @@ module.exports = {
 
   // GET single product
    getProduct: async (req, res) => {
-    let id = req.body.id;
+    let id = req.params.product_id;
     try {
       const product = await models.products.getOne(id);
       res.status(200).json(product);
