@@ -1,6 +1,7 @@
 const express = require("express");
-// const path = require("path");
+require('dotenv').config();
 const router = require("./routes.js");
+// const path = require("path");
 
 const app = express();
 app.use(express.json());
