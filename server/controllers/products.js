@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
 
   // GET all products
-  async getProducts(req, res) {
+  getProducts: async (req, res) => {
     try {
       const products = await models.products.getAll();
       res.status(200).json(products);
@@ -13,8 +13,9 @@ module.exports = {
     }
   },
 
+
   // GET single product
-  async getProduct(req. res) {
+   getProduct: async (req, res) => {
     let id = req.body.id;
     try {
       const product = await models.products.getOne(id);
@@ -26,7 +27,7 @@ module.exports = {
   },
 
   // GET product styles
-  async getStyles(req, res) {
+  getStyles: async (req, res) => {
     let id = req.params.product_id;
     try {
       const styles = await models.products.getProductStyles(id)
@@ -38,7 +39,7 @@ module.exports = {
   },
 
   // GET related Productc
-  async getRelated(req, res) {
+  getRelated: async (req, res) => {
     let id = req.params.product_id;
     try {
       const related = await models.products.getRelatedProducts(id);
