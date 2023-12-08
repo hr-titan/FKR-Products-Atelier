@@ -13,10 +13,10 @@ module.exports = {
     }
   },
 
-
   // GET single product
    getProduct: async (req, res) => {
-    let id = req.params.product_id;
+    const id = req.params.product_id;
+    console.log('::', id);
     try {
       const product = await models.products.getOne(id);
       res.status(200).json(product);
@@ -30,7 +30,7 @@ module.exports = {
   getStyles: async (req, res) => {
     let id = req.params.product_id;
     try {
-      const styles = await models.products.getProductStyles(id)
+      const styles = await models.products.getProductStyles(id);
       res.status(200).json(styles);
     } catch (err) {
       console.log(err);

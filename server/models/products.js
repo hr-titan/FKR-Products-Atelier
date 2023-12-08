@@ -17,7 +17,7 @@ module.exports = {
 
   getOne: (id) => {
     return new Promise((resolve, reject) => {
-      const query = ''; // TO DO:
+      const query = `select * from products where id = ${id} limit 1`; // TO DO:
       db.query(query, (err, results) => {
         if(err) {
           reject(err);
