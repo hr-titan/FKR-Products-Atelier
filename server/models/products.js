@@ -42,16 +42,32 @@ module.exports = {
 
   getProductStyles: (id) => {
     return new Promise((resolve, reject) => {
-      const query = ''; // TO DO:
-      db.query(query, (err, results) => {
-        if(err) {
-          reject(err);
-        } else {
-          resolve(results);
+      const query1 = `SELECT * FROM styles WHERE styles.product_id = ${id}`; // TO DO:
+      db.query(query1, (err1, results1) => {
+        if(err1) {
+          reject(err1);
         }
+        if(results1.length === 0) {
+          resolve({});
+        }
+        const style = results1.map(result => result.id).join(",");
+        const query2 = `SELECT * FROM photos WHERE photos.style_id IN (${style})`;
+        db.query(query2, (err2, results2) => {
+          if(err2) {
+            reject(err2);
+          }
+          const query3 = `SELECT * FROM skus WHERE skus.style_id IN (${style})`;
+          db.query(query3, (err3, results3) => {
+            if(err3) {
+              reject(err3);
+            }
+            // map through
+            resolve({results1, results2, results3})
+        });
       });
     });
-  },
+  });
+},
 
   getRelatedProducts: (id) => {
     return new Promise((resolve, reject) => {
