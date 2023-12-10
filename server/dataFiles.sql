@@ -3,7 +3,7 @@
 
 LOAD DATA LOCAL INFILE '/Users/faycalrwigema/Desktop/x-SDC/csvFiles/product.csv'
 INTO TABLE products
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS -- ignores the  headers
 (id, name, slogan, description, category, default_price);
@@ -17,21 +17,21 @@ IGNORE 1 ROWS -- ignores the  headers
 
 LOAD DATA LOCAL INFILE '/Users/faycalrwigema/Desktop/x-SDC/csvFiles/features.csv'
 INTO TABLE features
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS -- ignores the  headers
 (id, product_id, feature_name, value);
 
 LOAD DATA LOCAL INFILE '/Users/faycalrwigema/Desktop/x-SDC/csvFiles/styles.csv'
 INTO TABLE styles
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS -- ignores the  headers
 (id, product_id, name, sale_price, original_price, is_default);
 
 LOAD DATA LOCAL INFILE '/Users/faycalrwigema/Desktop/x-SDC/csvFiles/photos.csv'
 INTO TABLE photos
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS -- ignores the  headers
 (id, style_id, url, thumbnail_url);
@@ -39,7 +39,7 @@ IGNORE 1 ROWS -- ignores the  headers
 
 LOAD DATA LOCAL INFILE '/Users/faycalrwigema/Desktop/x-SDC/csvFiles/skus.csv'
 INTO TABLE skus
-FIELDS TERMINATED BY ','
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS -- ignores the  headers
 (id, style_id, size, quantity);

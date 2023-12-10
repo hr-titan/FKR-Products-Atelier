@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS products (
   id INT PRIMARY KEY,
   name VARCHAR(255),
   slogan VARCHAR(255),
-  description VARCHAR(255),
+  description TEXT,
   category VARCHAR(255),
   default_price INT
  );
@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS products (
   CREATE TABLE IF NOT EXISTS features (
     id INT PRIMARY KEY,
     product_id INT,
-    feature_name VARCHAR(255),
-    value VARCHAR(50),
+    feature VARCHAR(255),
+    value VARCHAR(100),
     FOREIGN KEY (product_id) REFERENCES products(id)
   );
 
@@ -45,15 +45,16 @@ CREATE TABLE IF NOT EXISTS products (
   CREATE TABLE IF NOT EXISTS photos (
     id INT NOT NULL PRIMARY KEY,
     style_id INT NOT NULL,
-    url VARCHAR(255) NOT NULL,
-    thumbnail_url VARCHAR(255) NOT NULL,
+    url TEXT NOT NULL,
+    thumbnail_url TEXT NOT NULL,
     FOREIGN KEY (style_id) REFERENCES styles(id)
   );
 
   CREATE TABLE IF NOT EXISTS skus (
     id INT NOT NULL PRIMARY KEY,
     style_id INT NOT NULL,
-    size VARCHAR(10) NOT NULL,
+    size VARCHAR(50) NOT NULL,
     quantity INT NOT NULL,
     FOREIGN KEY (style_id) REFERENCES styles(id)
  );
+
