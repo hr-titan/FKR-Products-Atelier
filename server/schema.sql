@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS products (
   CREATE TABLE IF NOT EXISTS features (
     id INT PRIMARY KEY,
     product_id INT,
-    feature_name VARCHAR(255),
+    feature VARCHAR(255),
     value VARCHAR(100),
     FOREIGN KEY (product_id) REFERENCES products(id)
   );
