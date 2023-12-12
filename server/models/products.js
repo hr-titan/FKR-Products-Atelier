@@ -18,7 +18,7 @@ module.exports = {
   getOne: (id) => {
     return new Promise((resolve, reject) => {
       console.log(id)
-      const query1 = `SELECT * FROM products WHERE id = ${id}`; // TO DO:
+      const query1 = `SELECT * FROM products WHERE id = ${id}`;
       const query2 = `SELECT f.feature, f.value FROM features AS f WHERE f.product_id = ${id}`;
       db.query(query1, (err1, results1) => {
         if(err1) {
@@ -77,7 +77,7 @@ module.exports = {
 
   getRelatedProducts: (id) => {
     return new Promise((resolve, reject) => {
-      const query = `SELECT * FROM relatedProducts WHERE product_id = ${id}`; // TO DO:
+      const query = `SELECT * FROM relatedProducts WHERE product_id = ${id}`;
       db.query(query, (err, results) => {
         if(err) {
           reject(err);

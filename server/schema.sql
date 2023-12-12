@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS products (
     product_id INT,
     related_id INT,
     FOREIGN KEY (product_id) REFERENCES products(id),
-    FOREIGN KEY (related_id) REFERENCES products(id)
+    FOREIGN KEY (related_id) REFERENCES products(id),
+    INDEX idx_product_id (product_id)
   );
 
   CREATE TABLE IF NOT EXISTS features (
@@ -28,7 +29,8 @@ CREATE TABLE IF NOT EXISTS products (
     product_id INT,
     feature VARCHAR(255),
     value VARCHAR(100),
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    INDEX idx_product_id (product_id)
   );
 
 
@@ -39,7 +41,8 @@ CREATE TABLE IF NOT EXISTS products (
     sale_price INT NOT NULL,
     original_price INT NOT NULL,
     is_default BOOLEAN NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    INDEX idx_product_id (product_id)
   );
 
   CREATE TABLE IF NOT EXISTS photos (
