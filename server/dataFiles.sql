@@ -48,5 +48,5 @@ IGNORE 1 ROWS -- ignores the  headers
 
 -- Execute this file from the command line by typing:
 -- mysql -u root < server/dataFiles.sql
--- ALTER TABLE table_name CHANGE old_column_name new_col_name varchar(20) not null;
+
 
