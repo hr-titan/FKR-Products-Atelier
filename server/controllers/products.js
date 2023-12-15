@@ -8,7 +8,6 @@ module.exports = {
       const products = await models.products.getAll();
       res.status(200).json(products);
     } catch (err) {
-      console.log(err);
       res.status(500).json({ error: 'internal server Error: 001'});
     }
   },
@@ -21,7 +20,6 @@ module.exports = {
       const product = await models.products.getOne(id);
       res.status(200).json(product);
     } catch (err) {
-      console.log(err);
       res.status(500).json({ error: 'internal server error: 002'});
     }
   },
@@ -34,7 +32,6 @@ module.exports = {
       const styles = await models.products.getProductStyles(id);
       res.status(200).json(styles);
     } catch (err) {
-      console.log(err);
       res.status(500).json({ error: 'internal server error: 003'});
     }
   },
@@ -47,7 +44,6 @@ module.exports = {
       const related = await models.products.getRelatedProducts(id);
       res.status(200).json(related);
     } catch (err) {
-      console.log(err);
       res.status(500).json({ error: 'internal server error: 004'})
     }
   }
