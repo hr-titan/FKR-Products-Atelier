@@ -17,7 +17,6 @@ module.exports = {
 
   getOne: (id) => {
     return new Promise((resolve, reject) => {
-      console.log(id)
       const query1 = `SELECT * FROM products WHERE id = ${id}`;
       const query2 = `SELECT f.feature, f.value FROM features AS f WHERE f.product_id = ${id}`;
       db.query(query1, (err1, results1) => {
@@ -60,7 +59,6 @@ module.exports = {
             if(err3) {
               reject(err3);
             }
-            console.log('::',results1)
             // map through results1
             let styles = results1.map((style) => {
               style['photos'] = results2.filter((photo) => photo.style_id === style.style_id).map((p) => ({thumbnail_url: p.thumbnail_url, url: p.url}));
